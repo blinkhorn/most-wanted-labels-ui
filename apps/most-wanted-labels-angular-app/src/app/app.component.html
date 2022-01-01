@@ -1,9 +1,10 @@
-<div style="text-align: center">
-  <h1>Welcome to most-wanted-labels-angular-app!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Extensible Build Framework"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<main class="app-wrapper">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="app-title"
+        >Most Supported Record Labels</span
+      >
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</main>
