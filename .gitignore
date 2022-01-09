@@ -65,3 +65,4 @@ amplifytools.xcconfig
 team-provider-info.json
 cli-inputs.json
 amplify-dependent-resources-ref.d.ts
+MostWantedLabelsFunction-cloudformation-template.json
