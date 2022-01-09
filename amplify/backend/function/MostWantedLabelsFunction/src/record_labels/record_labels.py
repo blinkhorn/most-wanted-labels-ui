@@ -22,9 +22,9 @@ table = dynamodb.Table(TABLE_NAME)
 @router.post("/add-new")
 def post_record_labels() -> list[dict]:
     json_payload = router.current_event.json_body
-    headers = router.current_event.headers
+    query_params = router.current_event.query_string_parameters
     record_label_name = json_payload.get('name')
-    user_id = headers.get("userId", "pblinkhorn")
+    user_id = query_params.get("userId", "pblinkhorn")
     record_label_id = find_record_label_on_discogs(record_label_name)
     record_label_releases = retrieve_record_label_releases(record_label_id)
     formatted_releases_stats = format_releases_stats(record_label_releases)
@@ -36,8 +36,8 @@ def post_record_labels() -> list[dict]:
 
 @router.get("/")
 def get_record_labels() -> dict:
-    headers = router.current_event.headers
-    user_id = headers.get("userId", "pblinkhorn")
+    query_params = router.current_event.query_string_parameters
+    user_id = query_params.get("userId", "pblinkhorn")
     response = table.query(
         KeyConditionExpression=Key('user_id').eq(user_id)
     )
@@ -47,8 +47,8 @@ def get_record_labels() -> dict:
 @router.get("/<record_label_id>")
 def get_record_label(record_label_id: str) -> dict:
     logger.info(f"Fetching record label with id {record_label_id}")
-    headers = router.current_event.headers
-    user_id = headers.get("userId", "pblinkhorn")
+    query_params = router.current_event.query_string_parameters
+    user_id = query_params.get("userId", "pblinkhorn")
     response = table.query(
         KeyConditionExpression=Key('user_id').eq(user_id) & Key('record_label_id').eq(record_label_id)
     )
