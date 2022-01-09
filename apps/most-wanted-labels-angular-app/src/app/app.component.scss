@@ -2,3 +2,22 @@
   flex: 1 1 auto;
   text-align: center;
 }
+
+.app-header {
+  margin-bottom: 3rem;
+}
+
+.app-greeting {
+  text-align: center;
+}
+
+.signout-section {
+  display: flex;
+  justify-content: center;
+}
+
+.button-center {
+  display: flex;
+  width: 25%;
+  justify-content: right;
+}

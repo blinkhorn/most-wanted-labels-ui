@@ -17,6 +17,10 @@
     "paths": {
       "@most-wanted-labels-ui/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
+      ],
+      "@most-wanted-labels-ui/appsync": ["libs/appsync/src/index.ts"],
+      "@most-wanted-labels-ui/most-wanted-labels-ui": [
+        "libs/most-wanted-labels-ui/src/index.ts"
       ]
     }
   },

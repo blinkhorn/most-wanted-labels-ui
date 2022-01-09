@@ -8,16 +8,12 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -41,20 +37,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/api/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api"
-          ],
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -70,17 +60,39 @@
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/api-interfaces/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
           }
         }
       },
       "tags": []
+    },
+    "appsync": {
+      "projectType": "library",
+      "root": "libs/appsync",
+      "sourceRoot": "libs/appsync/src",
+      "prefix": "most-wanted-labels-ui",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/appsync"],
+          "options": {
+            "jestConfig": "libs/appsync/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/appsync/src/**/*.ts",
+              "libs/appsync/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["shared"]
     },
     "most-wanted-labels-angular-app": {
       "projectType": "application",
@@ -90,9 +102,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/most-wanted-labels-angular-app",
             "index": "apps/most-wanted-labels-angular-app/src/index.html",
@@ -115,8 +125,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1500kb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -175,9 +185,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/most-wanted-labels-angular-app"
-          ],
+          "outputs": ["coverage/apps/most-wanted-labels-angular-app"],
           "options": {
             "jestConfig": "apps/most-wanted-labels-angular-app/jest.config.js",
             "passWithNoTests": true
@@ -205,9 +213,7 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": [
               "apps/most-wanted-labels-angular-app-e2e/**/*.{js,ts}"
@@ -216,9 +222,33 @@
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "most-wanted-labels-angular-app"
-      ]
+      "implicitDependencies": ["most-wanted-labels-angular-app"]
+    },
+    "most-wanted-labels-ui": {
+      "projectType": "library",
+      "root": "libs/most-wanted-labels-ui",
+      "sourceRoot": "libs/most-wanted-labels-ui/src",
+      "prefix": "most-wanted-labels-ui",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/most-wanted-labels-ui"],
+          "options": {
+            "jestConfig": "libs/most-wanted-labels-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/most-wanted-labels-ui/src/**/*.ts",
+              "libs/most-wanted-labels-ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["ui"]
     }
   }
 }
